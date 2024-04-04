@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
-import {ButtonLabel, Divider} from '../../../components/atoms';
+import {ButtonGradient, Divider} from '../../../components/atoms';
 import {FormInput} from '../../../components/molecules';
 import {color} from '../../../utils/styles';
 import {Container} from '../../organism';
@@ -12,8 +12,16 @@ import {types} from '../../../redux/actions/types';
 
 function ContactForm({route}) {
   const {data, edit} = route.params;
-  const {navigation, form, validate, create, update, onChangeText, contacts} =
-    useContact();
+  const {
+    navigation,
+    form,
+    validate,
+    create,
+    update,
+    onChangeText,
+    setFormData,
+    contacts,
+  } = useContact();
   const dispatch = useDispatch();
   const [editingTodo, setEditingTodo] = useState(null);
 
@@ -44,8 +52,7 @@ function ContactForm({route}) {
 
   const unsubscribe = () => {
     if (edit) {
-      dispatch({
-        type: 'SETALL_FORM_CONTACT',
+      setFormData({
         firstName: data.firstName,
         lastName: data.lastName,
         age: data.age.toString(),
@@ -65,7 +72,7 @@ function ContactForm({route}) {
 
   return (
     <Container
-      bgColor={color.white9}
+      bgColor={color.background3}
       loading={contacts?.loading}
       scrollview={false}
       navbar={{
@@ -110,11 +117,8 @@ function ContactForm({route}) {
         />
       </View>
       <View style={stylesCust.footer}>
-        <ButtonLabel
-          type="success"
-          solid={true}
-          label="Save"
-          size="large"
+        <ButtonGradient
+          title="Save"
           disabled={!validate()}
           onClick={() => handleSave()}
         />

@@ -16,7 +16,7 @@ const ModalHeader: FC<ModalHeaderProps> = ({label, close}) => {
         type={{
           backgroundColor: 'transparent',
           borderColor: 'transparent',
-          color: color.tblack,
+          color: color.white,
         }}
         style={stylesCust.buttonFloat}
         name="x"

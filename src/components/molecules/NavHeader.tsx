@@ -36,7 +36,7 @@ const NavHeader: FC<NavHeaderProps> = ({
     <View style={stylesCust.header}>
       {onClick ? (
         <ButtonIcon
-          type={{...buttonType, color: color.tblack}}
+          type={{...buttonType, color: color.white}}
           style={[
             stylesCust.buttonFloat,
             {
@@ -65,7 +65,7 @@ const NavHeader: FC<NavHeaderProps> = ({
           {subtitle ? (
             <Text
               style={[
-                styles.p4(color.tgrey3, 'center'),
+                styles.p4(color.white5, 'center'),
                 {textTransform: 'none'},
               ]}>
               {subtitle}
@@ -84,7 +84,7 @@ const NavHeader: FC<NavHeaderProps> = ({
       ) : null}
       {onClick && !onEdit && !onClear ? (
         <ButtonIcon
-          type={{...buttonType, color: color.white9}}
+          type={{...buttonType, color: color.background3}}
           style={[stylesCust.buttonFloat, {alignItems: 'flex-end'}]}
           name="chevron-left"
           size={20}
@@ -139,14 +139,14 @@ const stylesCust = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 30,
-    backgroundColor: color.white9,
+    backgroundColor: color.background3,
   },
   buttonFloat: {
     justifyContent: 'center',
     width: 38,
     height: 38,
   },
-  title: styles.h3(color.tblack, 'center'),
+  title: styles.h3(color.white, 'center'),
 });
 
 export default NavHeader;

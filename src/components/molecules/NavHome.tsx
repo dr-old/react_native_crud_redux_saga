@@ -3,6 +3,7 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {color, styles} from '../../utils/styles';
 import {ButtonIcon, Divider} from '../atoms';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 interface NavHomeProps {
   title: string;
@@ -56,12 +57,21 @@ const NavHome: FC<NavHomeProps> = ({
                 <Divider width={10} height={0} />
               </>
             ) : null}
-            <ButtonIcon
-              type={stylesCust.buttonType}
-              onClick={onCart}
-              name="plus"
-              size={20}
-            />
+            {onCart ? (
+              <>
+                <TouchableOpacity
+                  onPress={onCart}
+                  style={stylesCust.buttonType}>
+                  <MaterialIcons name="search" size={24} color={color.tgrey3} />
+                </TouchableOpacity>
+                {/* <ButtonIcon
+                type={stylesCust.buttonType}
+                onClick={onCart}
+                name="plus"
+                size={24}
+              /> */}
+              </>
+            ) : null}
           </View>
         </View>
       </View>
@@ -79,7 +89,7 @@ const NavHome: FC<NavHomeProps> = ({
 };
 
 const stylesCust = StyleSheet.create({
-  navHome: {height: 100, marginHorizontal: 30},
+  navHome: {height: 70, marginHorizontal: 30, marginTop: 20},
   imageInit: {
     backgroundColor: color.green4,
     width: 48,
@@ -142,8 +152,8 @@ const stylesCust = StyleSheet.create({
     borderBottomRightRadius: 15,
   },
   buttonType: {
-    backgroundColor: color.green4,
-    borderColor: color.white,
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
     color: color.white,
   },
 });

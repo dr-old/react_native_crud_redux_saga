@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {ButtonLabel} from '../atoms';
+import {ButtonGradient} from '../atoms';
 
 interface ModalFooterProps {
   onCancel: () => void;
@@ -11,22 +11,10 @@ const ModalFooter: FC<ModalFooterProps> = ({onCancel, onSubmit}) => {
   return (
     <View style={stylesCust.modalContent}>
       <View style={stylesCust.button}>
-        <ButtonLabel
-          type="default"
-          solid={true}
-          label="Cancel"
-          size="large"
-          onClick={onCancel}
-        />
+        <ButtonGradient type="slate" title="Cancel" onClick={onCancel} />
       </View>
       <View style={stylesCust.button}>
-        <ButtonLabel
-          type="danger"
-          solid={true}
-          label="Delete"
-          size="large"
-          onClick={onSubmit}
-        />
+        <ButtonGradient type="danger" title="Delete" onClick={onSubmit} />
       </View>
     </View>
   );

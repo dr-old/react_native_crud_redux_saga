@@ -1,9 +1,14 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  PixelRatio,
+} from 'react-native';
 import {color, styles} from '../../../utils/styles';
 import {FormInput} from '../../../components/molecules';
-import {ButtonLabel, Divider, OptionLabel} from '../../../components/atoms';
-import stylesCust from './stylesCust';
+import {ButtonGradient, Divider, OptionLabel} from '../../../components/atoms';
 import useAction from './useAction';
 import {Container} from '../../organism';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -26,7 +31,9 @@ const Login = () => {
       <View style={stylesCust.header}>
         <Text style={styles.h2()}>Sign In</Text>
         <Divider height={5} />
-        <Text style={styles.p4()}>Sign in to continue your journey</Text>
+        <Text style={styles.p4(color.white5)}>
+          Sign in to continue your journey
+        </Text>
       </View>
       <Divider height={50} />
       <View style={stylesCust.contentBody}>
@@ -48,7 +55,7 @@ const Login = () => {
           onChangeText={value => onChangeText('password', value)}
           icon={{
             name: !isToogle ? 'eye' : 'eye-off',
-            color: color.grey2,
+            color: color.white5,
             onClick: () => setToogle(!isToogle),
           }}
         />
@@ -58,11 +65,8 @@ const Login = () => {
           Forgot Password ?
         </Text>
         <Divider height={20} />
-        <ButtonLabel
-          type="success"
-          solid={true}
-          label="Sign In!"
-          size="large"
+        <ButtonGradient
+          title="Sign In!"
           disabled={!signInValidate()}
           onClick={() => signIn()}
         />
@@ -87,5 +91,33 @@ const Login = () => {
     </Container>
   );
 };
+
+const stylesCust = StyleSheet.create({
+  groupInput: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 30,
+  },
+  groupItem: {width: '47%'},
+  contentBody: {marginHorizontal: 30},
+  contentImage: {
+    height: PixelRatio.getPixelSizeForLayoutSize(135),
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {flex: 1, marginHorizontal: 30, marginTop: 80},
+  buttonGoogle: {
+    backgroundColor: '#4285F4',
+    borderRadius: 8,
+    height: 48,
+    alignItems: 'center',
+    marginTop: 35,
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+  },
+});
 
 export default Login;

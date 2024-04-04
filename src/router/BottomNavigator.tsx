@@ -1,11 +1,12 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Dimensions, Platform, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Icon} from '../components/atoms';
+import {ButtonIcon, Icon} from '../components/atoms';
 import {color} from '../utils/styles';
 import {Home, Setting} from '../containers/pages';
 import * as Animatable from 'react-native-animatable';
-import Search from '../containers/pages/Search';
+import {useNavigation} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,12 +17,12 @@ const MenuArray = [
     icon: 'home',
     type: null,
   },
-  {
-    name: 'Search',
-    comp: Search,
-    icon: 'search',
-    type: null,
-  },
+  // {
+  //   name: 'Search',
+  //   comp: Search,
+  //   icon: 'search',
+  //   type: null,
+  // },
   {
     name: 'Profile',
     comp: Setting,
@@ -76,6 +77,9 @@ const ItemTab: React.FC<ItemTabProps> = ({focused, icon, clr, type, name}) => {
 };
 
 const MyTabs: React.FC = () => {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
       <Tab.Navigator
@@ -108,6 +112,23 @@ const MyTabs: React.FC = () => {
           />
         ))}
       </Tab.Navigator>
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 40,
+          right: '38.5%',
+        }}>
+        <ButtonIcon
+          type={styles.icon}
+          style={styles.inputIcon}
+          name={'plus'}
+          size={30}
+          onClick={() => {
+            dispatch({type: 'CLEAN_FORM_TODO'});
+            navigation?.push('ContactForm', {data: {}, edit: false});
+          }}
+        />
+      </View>
     </View>
   );
 };
@@ -160,5 +181,18 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 30,
     borderWidth: 2,
+  },
+  icon: {
+    backgroundColor: color.green4,
+    borderColor: color.green4,
+    color: color.white,
+  },
+  inputIcon: {
+    padding: 20,
+    borderRadius: 50,
+    justifyContent: 'center',
+    backgroundColor: color.green4,
+    borderColor: color.background3,
+    borderWidth: 10,
   },
 });

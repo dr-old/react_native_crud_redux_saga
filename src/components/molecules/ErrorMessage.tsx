@@ -19,7 +19,7 @@ function ErrorMessage({marginVertical, message, image}: ErrorMessageProps) {
       }}>
       <Text
         style={[
-          styles.textBase(25, color.grey, 'textSemiBold'),
+          styles.textBase(25, color.white, 'textSemiBold'),
           {
             paddingBottom: 5,
             textAlign: 'center',
@@ -29,7 +29,7 @@ function ErrorMessage({marginVertical, message, image}: ErrorMessageProps) {
       </Text>
       <Text
         style={[
-          styles.textBase(14, color.grey, 'textMedium', 'none'),
+          styles.textBase(14, color.white5, 'textRegular', 'none'),
           {
             paddingBottom: 10,
             textAlign: 'center',

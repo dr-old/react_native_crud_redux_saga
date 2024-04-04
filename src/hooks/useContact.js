@@ -12,9 +12,15 @@ import {useNavigation} from '@react-navigation/native';
 export const useContact = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contactReducer);
-  const form = useSelector(state => state.generalReducer.formContact);
+  // const form = useSelector(state => state.generalReducer.formContact);
   const navigation = useNavigation();
   const [page, setPage] = useState(1);
+  const [form, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    age: '',
+    photo: '',
+  });
 
   const loadMore = () => {
     if (!contacts.loading) {
@@ -61,7 +67,10 @@ export const useContact = () => {
   };
 
   const onChangeText = (type, value) => {
-    dispatch({type: 'SET_FORM_CONTACT', inputType: type, inputValue: value});
+    setFormData({
+      ...form,
+      [type]: value,
+    });
   };
 
   const validate = () => {
@@ -81,6 +90,7 @@ export const useContact = () => {
     create,
     form,
     onChangeText,
+    setFormData,
     validate,
     navigation,
   };

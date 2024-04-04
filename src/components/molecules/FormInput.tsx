@@ -55,7 +55,7 @@ const FormInput: FC<FormInputProps> = ({
   const [isFocus, setFocus] = useState<boolean | null>(null);
   let brcolor = '';
   let bgcolor = 'transparent';
-  let brradius = 8;
+  let brradius = 16;
   let padhrz = 10;
 
   if (type === 'outline') {
@@ -71,7 +71,7 @@ const FormInput: FC<FormInputProps> = ({
       {label && (
         <>
           <Text style={styles.textBase()}>{label}</Text>
-          <Divider width={10} height={0} />
+          <Divider width={10} height={5} />
         </>
       )}
       <View
@@ -79,11 +79,11 @@ const FormInput: FC<FormInputProps> = ({
           stylesCust.inputText,
           // eslint-disable-next-line react-native/no-inline-styles
           {
-            borderColor: isFocus ? color.green4 : brcolor,
+            borderColor: isFocus ? color.green4 : color.background,
             borderRadius: brradius,
             paddingHorizontal: padhrz,
-            backgroundColor: bgcolor,
-            height: multiline ? 100 : 40,
+            backgroundColor: color.background,
+            height: multiline ? 100 : 50,
           },
         ]}>
         <InputText

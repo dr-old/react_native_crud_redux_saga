@@ -36,9 +36,10 @@ const stylesCust = StyleSheet.create({
   footer: {
     paddingHorizontal: 30,
     paddingVertical: 20,
+    backgroundColor: color.background3,
   },
   imageIcon: {
-    backgroundColor: color.green4,
+    backgroundColor: color.oranget2,
     justifyContent: 'center',
     alignItems: 'center',
     width: 130,

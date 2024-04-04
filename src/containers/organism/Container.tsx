@@ -7,6 +7,8 @@ import {
   NavHeader,
   NavHome,
 } from '../../components/molecules';
+import LinearGradient from 'react-native-linear-gradient';
+import {color} from '../../utils/styles';
 
 interface ContainerProps {
   refScroll?: React.RefObject<ScrollView>;
@@ -32,8 +34,15 @@ const Container: React.FC<ContainerProps> = ({
   scrollview = true,
 }) => {
   return (
-    <View style={stylesCust.page}>
-      <BarHeader bgcolor={bgColor} />
+    <LinearGradient
+      start={{x: 1, y: 0}}
+      end={{x: 0, y: 1}}
+      colors={[color.background1, color.background2, color.background3]}
+      style={{flex: 1}}>
+      <BarHeader
+        bgcolor={bgColor || color.background1}
+        barStyle="light-content"
+      />
       {navbar?.type === 'fixed' ? (
         <NavHeader
           title={navbar?.title}
@@ -77,7 +86,7 @@ const Container: React.FC<ContainerProps> = ({
           <Divider height={50} />
         </ScrollView>
       ) : (
-        <View style={stylesCust.page}>
+        <View style={{...stylesCust.page, backgroundColor: bgColor}}>
           {navbar?.type === 'nofixed' ? (
             <NavHeader
               title={navbar?.title}
@@ -105,7 +114,7 @@ const Container: React.FC<ContainerProps> = ({
       )}
       {bottom ? bottom : null}
       {loading ? <LoadingExtern backgroundColor={undefined} /> : null}
-    </View>
+    </LinearGradient>
   );
 };
 

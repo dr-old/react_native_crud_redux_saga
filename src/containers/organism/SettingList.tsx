@@ -20,7 +20,7 @@ interface SettingListProps {
 const SettingList: React.FC<SettingListProps> = ({data, title}) => {
   return (
     <View style={stylesCust.userActions}>
-      <Text style={utilsStyles.textBase(17, color.grey2, 'textSemiBold')}>
+      <Text style={utilsStyles.textBase(17, color.white, 'textSemiBold')}>
         {title}
       </Text>
       <Divider height={20} />
@@ -28,9 +28,9 @@ const SettingList: React.FC<SettingListProps> = ({data, title}) => {
         <View key={l.icon} style={stylesCust.userAction}>
           <ButtonIcon
             type={{
-              backgroundColor: color.white,
-              borderColor: color.white,
-              color: color.tblack,
+              backgroundColor: color.background1,
+              borderColor: color.background1,
+              color: color.white,
             }}
             name={l.icon}
             size={20}
@@ -38,20 +38,20 @@ const SettingList: React.FC<SettingListProps> = ({data, title}) => {
           />
           {!l.subtitle ? null : (
             <View style={stylesCust.userButton}>
-              <Text style={utilsStyles.textBase(13, color.grey2)}>
+              <Text style={utilsStyles.textBase(13, color.white)}>
                 {l.label}
               </Text>
-              <Text style={utilsStyles.textBase(13, color.grey)}>
+              <Text style={utilsStyles.textBase(13, color.white)}>
                 {l.subtitle}
               </Text>
             </View>
           )}
           {!l.onClick ? null : (
             <TouchableOpacity onPress={l.onClick} style={stylesCust.userButton}>
-              <Text style={utilsStyles.textBase(13, color.grey2)}>
+              <Text style={utilsStyles.textBase(13, color.white)}>
                 {l.label}
               </Text>
-              <Feather name="chevron-right" size={20} color={color.grey2} />
+              <Feather name="chevron-right" size={20} color={color.white} />
             </TouchableOpacity>
           )}
         </View>
@@ -68,7 +68,7 @@ const stylesCust = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 10,
     marginBottom: 10,
-    borderBottomColor: color.white3,
+    borderBottomColor: color.background1,
     borderBottomWidth: 1,
   },
   icon: {

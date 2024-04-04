@@ -13,6 +13,7 @@ const color = {
   blue4: '#e4effb',
   blue5: '#3670b2',
   blue6: '#255e9f',
+  blue7: '#4599DB',
   bluept: '#0d4b74d8',
   bluep: '#0D4B74',
   bluep1: '#2E688E',
@@ -62,7 +63,14 @@ const color = {
   green7: '#e6eda7',
   green8: '#f6f8dc',
   green10: '#253737e6',
+  green11: '#62CDCB',
   loading: '#00000060',
+  background: '#FFFFFF0F',
+  background1: '#1F4247',
+  background2: '#0D1D23',
+  background3: '#09141A',
+  background4: '#162329',
+  background5: '#0E191F',
 };
 
 const styles = StyleSheet.create({
@@ -86,7 +94,7 @@ const styles = StyleSheet.create({
   textThinItalic: {fontFamily: 'Poppins-ThinItalic'},
   textDefault: (
     size = 12,
-    clr = color.tblack,
+    clr = color.white,
     type = 'textRegular',
     transform = 'none',
   ) => [
@@ -100,7 +108,7 @@ const styles = StyleSheet.create({
   ],
   textBase: (
     size = 13,
-    clr = color.tblack,
+    clr = color.white,
     type = 'textMedium',
     transform = 'capitalize',
   ) => [

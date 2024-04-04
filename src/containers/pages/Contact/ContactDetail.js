@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Image, Text, View} from 'react-native';
-import {ButtonLabelIcon, Divider} from '../../../components/atoms';
+import {ButtonGradient, Divider} from '../../../components/atoms';
 import {color, styles} from '../../../utils/styles';
 import {Container, ModalAlert} from '../../organism';
 import stylesCust from './stylesCust';
@@ -62,7 +62,7 @@ function ContactDetail({route}) {
   return (
     <>
       <Container
-        bgColor={color.white9}
+        bgColor={color.background3}
         navbar={{
           type: 'fixed',
           title: 'Detail',
@@ -86,21 +86,36 @@ function ContactDetail({route}) {
           </Text>
           <Text
             numberOfLines={2}
-            style={[styles.textDefault(), {textAlign: 'center'}]}>
+            style={[
+              styles.textDefault(null, color.white5),
+              {textAlign: 'center'},
+            ]}>
             {data.age} years old
           </Text>
         </View>
       </Container>
       <View style={stylesCust.footer}>
-        <ButtonLabelIcon
+        {/* <ButtonLabelIcon
           onClick={handleEdit}
           icon="edit"
           buttonColor={color.white}
           iconColor={color.tblack}
           label="Edit"
-        />
+        /> */}
+        <ButtonGradient type="info" title="Edit" onClick={handleEdit} />
         <Divider height={10} />
-        <ButtonLabelIcon
+        <ButtonGradient
+          type="danger"
+          title="Delete"
+          onClick={() =>
+            openModal('Are you sure to delete this data ?', () => {
+              deleted(data.id);
+              closeModal();
+            })
+          }
+        />
+
+        {/* <ButtonLabelIcon
           onClick={() =>
             openModal('Are you sure to delete this data ?', () => {
               deleted(data.id);
@@ -108,9 +123,9 @@ function ContactDetail({route}) {
             })
           }
           icon="trash"
-          buttonColor={color.red2}
+          buttonColor={color.red}
           label="Delete"
-        />
+        /> */}
       </View>
       {modalAlert?.status && (
         <View styles={{position: 'absolute'}}>

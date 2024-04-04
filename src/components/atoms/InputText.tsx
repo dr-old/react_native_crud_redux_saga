@@ -44,7 +44,7 @@ const InputText: React.FC<InputTextProps> = ({
         stylesCust.input,
         // eslint-disable-next-line react-native/no-inline-styles
         {
-          color: disabled ? color.tblack : color.tblack,
+          color: disabled ? color.white5 : color.white,
           textAlign: textRight,
           textAlignVertical: multiline ? 'top' : 'center',
           height: myHeight || 40,

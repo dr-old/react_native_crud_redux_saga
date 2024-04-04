@@ -30,7 +30,7 @@ const ModalAlert: FC<ModalAlertProps> = ({data, close}) => {
               <Text
                 style={styles.textBase(
                   13,
-                  color.tblack,
+                  color.white5,
                   'textRegular',
                   'none',
                 )}>
@@ -73,7 +73,7 @@ const stylesCust = StyleSheet.create({
   },
   modalView: {
     width: '100%',
-    backgroundColor: 'white',
+    backgroundColor: color.background1,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingVertical: 20,

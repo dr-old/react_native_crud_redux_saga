@@ -17,7 +17,7 @@ const OptionLabel: React.FC<OptionLabelProps> = ({
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{marginTop: Platform.OS === 'ios' ? 10 : 20}}>
-      <Text style={[styles.p4(color.tblack, 'center')]}>
+      <Text style={[styles.p4(color.white5, 'center')]}>
         {title}
         <Text onPress={onClick} style={[styles.h7(color.green4)]}>
           {subtitle}

@@ -62,7 +62,7 @@ const stylesCust = StyleSheet.create({
     flex: 1,
     borderRadius: 15,
     marginBottom: 10,
-    backgroundColor: color.white,
+    backgroundColor: color.background5,
     marginHorizontal: 30,
   },
   articleBody: {
@@ -100,8 +100,8 @@ const stylesCust = StyleSheet.create({
     borderRadius: 15,
   },
   buttonType: {
-    backgroundColor: color.green4,
-    borderColor: color.green4,
+    backgroundColor: color.oranget2,
+    borderColor: color.oranget2,
     color: color.white,
   },
 });

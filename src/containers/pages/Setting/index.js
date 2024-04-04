@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import {color, styles} from '../../../utils/styles';
 import {Container, SettingList} from '../../organism';
 import packageJson from '../../../../package.json';
-import stylesCust from './stylesCust';
 import useAction from './useAction';
 import {useNavigation} from '@react-navigation/native';
 
@@ -12,13 +11,7 @@ function Setting() {
   const navigation = useNavigation();
 
   return (
-    <Container
-      bgColor={color.white9}
-      navbar={{
-        type: 'nofixed',
-        title: '',
-        // onClick: () => navigation.goBack(),
-      }}>
+    <Container bgColor={color.background3}>
       {user?.data ? (
         <View style={stylesCust.user}>
           <Image
@@ -62,5 +55,39 @@ function Setting() {
     </Container>
   );
 }
+
+const stylesCust = StyleSheet.create({
+  container: {
+    paddingHorizontal: 30,
+    paddingTop: 20,
+    marginTop: 20,
+  },
+  user: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 70,
+  },
+  initPhoto: [
+    styles.textBase(45, color.white, 'textSemiBold', 'uppercase'),
+    {textAlign: 'center', paddingTop: 10},
+  ],
+  userEmail: [styles.p5(color.white5), {textTransform: 'lowercase'}],
+  userPhoto: {
+    justifyContent: 'center',
+    width: 100,
+    height: 100,
+    borderRadius: 70,
+    marginBottom: 20,
+    backgroundColor: color.green4,
+  },
+  userImage: {
+    resizeMode: 'cover',
+    width: 130,
+    height: 130,
+    borderRadius: 70,
+    marginBottom: 20,
+  },
+});
 
 export default Setting;
