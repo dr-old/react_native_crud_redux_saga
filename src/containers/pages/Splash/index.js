@@ -6,6 +6,8 @@ import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import {BarHeader} from '../../../components/molecules';
+import packageJson from '../../../../package.json';
+import {Divider} from '../../../components/atoms';
 
 const Splash = () => {
   const user = useSelector(state => state.generalReducer.user);
@@ -36,7 +38,9 @@ const Splash = () => {
         style={{flex: 1}}>
         <View style={stylesCust.page}>
           <View style={stylesCust.logoText}>
-            <Text style={styles.h1(color.white, null, 'textMedium')}>Crud</Text>
+            <Text style={styles.h1(color.white, null, 'textSemiBold')}>
+              Crud
+            </Text>
             <Text style={styles.textBase(30, color.white, 'textLight', 'none')}>
               App
             </Text>
@@ -45,6 +49,10 @@ const Splash = () => {
             Copyright by Danni Ramdan
           </Text>
         </View>
+        <Text style={styles.p4(color.white, 'center')}>
+          Version {packageJson.version}
+        </Text>
+        <Divider height={30} />
       </LinearGradient>
     </>
   );

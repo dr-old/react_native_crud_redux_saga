@@ -8,6 +8,7 @@ import {LogBox} from 'react-native';
 import {GoogleSignin} from '@react-native-community/google-signin';
 import {env} from './src/utils';
 import CodePush from 'react-native-code-push';
+import {ModalNewUpdate} from './src/components/molecules';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
@@ -16,6 +17,8 @@ LogBox.ignoreAllLogs(); //Ignore all log notifications
 GoogleSignin.configure({
   webClientId: env.GOOGLE.CLIENTID,
 });
+
+let codePushOptions = {checkFrequency: CodePush.CheckFrequency.MANUAL};
 
 function App() {
   const [progress, setProgress] = React.useState(false);
@@ -74,6 +77,7 @@ function App() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router />
+          {!!progress ? <ModalNewUpdate progress={progress} /> : null}
         </PersistGate>
       </Provider>
       <FlashMessage
@@ -86,4 +90,4 @@ function App() {
   );
 }
 
-export default App;
+export default CodePush(codePushOptions)(App);

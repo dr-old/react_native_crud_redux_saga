@@ -8,6 +8,7 @@ import TileArticle from './TileArticle';
 import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';
 import ErrorMessage from './ErrorMessage';
+import ModalNewUpdate from './ModalNewUpdate';
 
 export {
   FormInput,
@@ -19,5 +20,6 @@ export {
   TileArticle,
   ModalFooter,
   ModalHeader,
+  ModalNewUpdate,
   ErrorMessage,
 };

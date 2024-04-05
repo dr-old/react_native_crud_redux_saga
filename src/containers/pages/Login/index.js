@@ -27,7 +27,7 @@ const Login = () => {
   } = useAction();
 
   return (
-    <Container loading={user.loading} bgColor={color.white9}>
+    <Container loading={user.loading}>
       <View style={stylesCust.header}>
         <Text style={styles.h2()}>Sign In</Text>
         <Divider height={5} />
