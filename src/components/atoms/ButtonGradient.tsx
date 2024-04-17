@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from '../../utils';
 import {color} from '../../utils/styles';
@@ -15,22 +14,6 @@ interface ButtonProps {
 }
 
 const ButtonGradient: React.FC<ButtonProps> = props => {
-  // switch (type) {
-  //   case 'danger':
-  //     colors = ['#FF8C8C', '#FFB6B6']; // Soft red gradient for danger
-  //     break;
-  //   case 'warning':
-  //     colors = ['#FFD57E', '#FFEDB3']; // Soft orange gradient for warning
-  //     break;
-  //   case 'success':
-  //     colors = ['#A3FFA3', '#D3FFD3']; // Soft green gradient for success
-  //     break;
-  //   case 'info':
-  //     colors = ['#A8D8FF', '#D6EFFF']; // Soft blue gradient for info
-  //     break;
-  //   default:
-  //     colors = ['#E0E0E0', '#F5F5F5']; // Soft grey gradient for default
-  // }
   let colorType: any;
   switch (props.type) {
     case 'danger':
